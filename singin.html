@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="singin.css"> 
+    <title>Form Pendaftaran</title>
+   
+</head>
+<body>
+
+<form class="form" id="registrationForm">
+    <p class="title">Sign Up</p>
+    <p class="message">Daftar akun anda untuk dapat mengakses lebih jauh.</p>
+    <div class="flex">
+        <label>
+            <input required placeholder="" type="text" class="input" id="firstname">
+            <span>Firstname</span>
+        </label>
+
+        <label>
+            <input required placeholder="" type="text" class="input" id="lastname">
+            <span>Lastname</span>
+        </label>
+    </div>  
+            
+    <label>
+        <input required placeholder="" type="email" class="input" id="email">
+        <span>Email</span>
+    </label> 
+        
+    <label>
+        <input required placeholder="" type="password" class="input" id="password">
+        <span>Password</span>
+    </label>
+
+    <label>
+        <input required placeholder="" type="password" class="input" id="confirmPassword">
+        <span>Confirm Password</span>
+    </label>
+
+    <button type="submit" class="submit">Submit</button>
+    <a href="home.html" class="btn back-btn">Back</a>
+    <p class="signin">belum ada akun? <a href="login.html">Daftar</a></p>
+</form>
+
+<script>
+    
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    const firstname = document.getElementById('firstname').value.trim();
+    const lastname = document.getElementById('lastname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+
+    if (!firstname || !lastname || !email || !password || !confirmPassword) {
+        alert("Semua kolom harus diisi!");
+        return; 
+    }
+
+    if (password !== confirmPassword) {
+        alert("Kata Sandi dan Konfirmasi Kata Sandi tidak cocok!");
+        return; 
+    }
+
+    alert(`Akun berhasil didaftarkan!\nNama Depan: ${firstname}\nNama Belakang: ${lastname}\nEmail: ${email}`);
+    
+   
+    this.reset();
+});
+</script>
+</body>
+</html>

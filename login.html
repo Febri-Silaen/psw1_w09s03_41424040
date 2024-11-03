@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Diri Mahasiswa Angkatan 2024</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="login.css" rel="stylesheet"/> 
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img alt="Logo of Institut Teknologi Del" height="100" src="logo.jpeg" width="100"/>
+        </div>
+        <div class="title">
+            <h2>Biodata Diri siswa Angkatan 2024</h2>
+        </div>
+        <div class="form-container">
+            <img alt="PROFIL" height="400" src="febri.jpg" width="600" border-radius="90px"/>
+            <form onsubmit="displayData(event)">
+                <table>
+                    <tr>
+                        <td>NIM</td>
+                        <td><input type="text" name="nim" placeholder="Masukkan NIM"/></td>
+                    </tr>
+                    <tr>
+                        <td>Nama</td>
+                        <td><input type="text" name="nama" placeholder="Masukkan Nama"/></td>
+                    </tr>
+                    <tr>
+                        <td>Prodi</td>  
+                        <td>
+                            <select name="prodi">
+                                <option value="-" selected disabled>Pilih Jurusan</option>
+                                <option value="D3 Teknologi Informasi">IPS</option>
+                                <option value="D3 Teknik Komputer">IPA</option>
+                                <option value="D4 Teknologi Rekayasa Perangkat Lunak">Pendidikan OLahraga</option>
+                                <option value="S1 Sistem Informasi">Teknik Kendaraan Ringan</option>
+                                <option value="S1 Informatika">Otomotif</option>
+                                <option value="S1 Teknik Elektro">Elektro</option>
+                                <option value="S1 Manajemen Rekayasa">S1 Manajemen Rekayasa</option>
+                                <option value="S1 Teknik Metalurgi"> Teknik Metalurgi</option>
+                                <option value="S1 Teknik Bioproses">Teknik Bioproses</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Angkatan</td>
+                        <td>
+                        <select name="angkatan">
+                            <option value="-" selected disabled>Pilih Angkatan</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                        </select>
+                    </tr>
+                </table>
+                
+                <button type="submit">REGISTER</button>
+           
+            </form>
+            <div id="output"></div> 
+        </div>        
+    </div>
+    <script>
+        function displayData(event) {
+    event.preventDefault(); 
+    const nim = document.querySelector('input[name="nim"]').value;
+    const nama = document.querySelector('input[name="nama"]').value;
+    const prodi = document.querySelector('select[name="prodi"]').value;
+    const angkatan = document.querySelector('select[name="angkatan"]').value; // Perbaikan di sini
+
+    const output = `
+        <h3>Data diri:</h3>
+        <p><strong>NIM:</strong> ${nim}</p>
+        <p><strong>Nama:</strong> ${nama}</p>
+        <p><strong>Prodi:</strong> ${prodi}</p>
+        <p><strong>Angkatan:</strong> ${angkatan}</p>
+    `;
+
+    document.getElementById('output').innerHTML = output;
+}
+
+    </script>
+</body>
+</html>
